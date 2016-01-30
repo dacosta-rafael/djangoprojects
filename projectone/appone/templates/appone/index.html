@@ -12,11 +12,31 @@ var o_url = 'http://192.168.1.117:8085/appone/json/';
                     //console.log( reply );
                         
                         
-                    var o = JSON.parse( reply );
-                    console.log( o );
+                     var o = JSON.parse( reply );
+                    console.log( o['count'] );
+                    iterator(o['results'] );
                     }
                 });
 
-console.log( 'hi' );
+        /**
+*set cookied prefs
+*/
+function iterator(o ) {
+    $.each( o , function( key, value ) {
+  //console.log( key + ": " + value );
+                                                $.each( value, function( key, value ) {
+                                                    console.log( key + ": " + value );
+  
+
+                                                });
+
+});
+
+}
+
+
+
+
+
 
 </script>
