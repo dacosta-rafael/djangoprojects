@@ -20,10 +20,10 @@ from .models import appone
 
 def raw(request):
 	#json doc to /appone/ url
-	data = open('/home/pi/python/projectone/appone/refGeneData.json').read()
-	#return HttpResponse(json.dumps(data), content_type='application/json')
-	data_json = json.loads(data)	
-	return render(request, 'appone/json_parse.html', {'o': data_json} )
+	data = open('/home/pi/python/projectone/appone/templates/appone/refGeneData.json').read()
+	return HttpResponse(json.dumps(data), content_type='application/json')
+	#data_json = json.loads(data)	
+	#return render(request, 'appone/json_parse.html', {'o': data_json} )
 
 def index(request):
     return render(request, 'appone/index.html')

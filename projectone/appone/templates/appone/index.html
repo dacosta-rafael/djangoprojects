@@ -3,7 +3,20 @@
 </head>
 
 <script>	
-var o = 'http://192.168.1.117:8085/appone/json/';
-console.log( o );
+var o_url = 'http://192.168.1.117:8085/appone/json/';
+
+                $.ajax({
+                    type: 'GET',
+                    url: o_url,
+                    success: function( reply ){
+                    //console.log( reply );
+                        
+                        
+                    var o = JSON.parse( reply );
+                    console.log( o );
+                    }
+                });
+
+console.log( 'hi' );
 
 </script>
