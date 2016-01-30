@@ -1,3 +1,0 @@
-{% for o in appone_table %}
-	{{o.field1}} <br /> 
-{% endfor %}

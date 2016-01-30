@@ -23,7 +23,7 @@ def raw(request):
 	data = open('/home/pi/python/projectone/appone/refGeneData.json').read()
 	#return HttpResponse(json.dumps(data), content_type='application/json')
 	data_json = json.loads(data)	
-	return render(request, 'appone/index.html', {'o': data_json} )
+	return render(request, 'appone/json_parse.html', {'o': data_json} )
 
 def index(request):
-    return HttpResponse("home")
+    return render(request, 'appone/index.html')
