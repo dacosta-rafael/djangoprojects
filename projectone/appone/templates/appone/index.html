@@ -25,7 +25,12 @@ function iterator(o ) {
     $.each( o , function( key, value ) {
   //console.log( key + ": " + value );
                                                 $.each( value, function( key, value ) {
-                                                    console.log( key + ": " + value );
+                                                   // console.log( key + ": " + value );
+                                                     if (key == 'name' ){
+                                                      console.log( name + ": " + value );
+
+                                                     }
+
   
 
                                                 });
