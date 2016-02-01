@@ -1,9 +1,11 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-</head>
+
 
 <script>	
-var o_url = 'http://192.168.1.117:8085/appone/json/';
+var hostname = document.location.hostname;
+
+var o_url = 'http://'+hostname+':8085/appone/json/';
 
                 $.ajax({
                     type: 'GET',
@@ -12,8 +14,8 @@ var o_url = 'http://192.168.1.117:8085/appone/json/';
                     //console.log( reply );
                         
                         
-                     var o = JSON.parse( reply );
-                    console.log( o['count'] );
+                    var o = JSON.parse( reply );
+                    //console.log( o['count'] );
                     iterator(o['results'] );
                     }
                 });
@@ -21,27 +23,34 @@ var o_url = 'http://192.168.1.117:8085/appone/json/';
         /**
 *set cookied prefs
 */
-function iterator(o ) {
-    $.each( o , function( key, value ) {
-  //console.log( key + ": " + value );
-                                                $.each( value, function( key, value ) {
-                                                   // console.log( key + ": " + value );
-                                                     if (key == 'name' ){
-                                                      console.log( name + ": " + value );
 
-                                                     }
 
-  
+                function iterator(o ) {
+                    $.each( o , function( key, value ) {
+                      //console.log( key + ": " + value );
+                      var node = key;
+                                                                    $.each( value, function( key, value ) {
+                                                                       // console.log( key + ": " + value );
+                                                                         if (key == 'name' ){
+                                                                          //console.log( name + ": " + value );
+                                                                                            //if(value == 'NM_007160'){
+                                                                                               var newElement;
+                                                                                               newElement = $("<div>"+node+": "+value+"</div>");
+                                                                                               $("#bin").append(newElement);
 
-                                                });
-
-});
-
-}
-
+                                                                                           //}
 
 
 
+                                                                         }
+                                                                    });
+
+                    });
+
+                }//endfunc
 
 
 </script>
+
+</head>
+<section id='bin'>retrieving...</section>
